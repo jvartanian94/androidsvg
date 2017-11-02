@@ -76,8 +76,6 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.Stack;
 
-import static android.R.attr.y;
-
 /*
  * The rendering part of AndroidSVG.
  */
@@ -136,12 +134,12 @@ class SVGAndroidRenderer
       RendererState()
       {
          fillPaint = new Paint();
-         fillPaint.setFlags(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
+         fillPaint.setFlags(Paint.DEV_KERN_TEXT_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
          fillPaint.setStyle(Paint.Style.FILL);
          fillPaint.setTypeface(Typeface.DEFAULT);
 
          strokePaint = new Paint();
-         strokePaint.setFlags(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
+         strokePaint.setFlags(Paint.DEV_KERN_TEXT_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
          strokePaint.setStyle(Paint.Style.STROKE);
          strokePaint.setTypeface(Typeface.DEFAULT);
 
