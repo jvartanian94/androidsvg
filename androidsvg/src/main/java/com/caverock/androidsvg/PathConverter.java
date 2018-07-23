@@ -1,12 +1,10 @@
 package com.caverock.androidsvg;
 
-import android.graphics.Path;
-
 /*
  *  Convert an internal PathDefinition to an android.graphics.Path object
  */
 public class PathConverter implements PathInterface {
-    android.graphics.Path path = new android.graphics.Path();
+    StatefulAndroidPath path = new StatefulAndroidPath();
     float lastX, lastY;
 
     public PathConverter(PathDefinition pathDef) {
@@ -15,7 +13,7 @@ public class PathConverter implements PathInterface {
         pathDef.enumeratePath(this);
     }
 
-    public Path getPath() {
+    public StatefulAndroidPath getPath() {
         return path;
     }
 
