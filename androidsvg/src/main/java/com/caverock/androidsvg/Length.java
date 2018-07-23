@@ -1,8 +1,8 @@
 package com.caverock.androidsvg;
 
 public class Length implements Cloneable {
-    float value = 0;
-    Unit unit = Unit.px;
+    public float value = 0;
+    public Unit unit = Unit.px;
 
     Length(float value, Unit unit) {
         this.value = value;
@@ -14,12 +14,12 @@ public class Length implements Cloneable {
         this.unit = Unit.px;
     }
 
-    float floatValue() {
+    public float floatValue() {
         return value;
     }
 
     // Convert length to user units for a horizontally-related context.
-    float floatValueX(SVGAndroidRenderer renderer) {
+    public float floatValueX(SVGAndroidRenderer renderer) {
         switch (unit) {
             case px:
                 return value;
@@ -48,7 +48,7 @@ public class Length implements Cloneable {
     }
 
     // Convert length to user units for a vertically-related context.
-    float floatValueY(SVGAndroidRenderer renderer) {
+    public float floatValueY(SVGAndroidRenderer renderer) {
         if (unit == Unit.percent) {
             Box viewPortUser = renderer.getCurrentViewPortInUserUnits();
             if (viewPortUser == null)
@@ -60,7 +60,7 @@ public class Length implements Cloneable {
 
     // Convert length to user units for a context that is not orientation specific.
     // For example, stroke width.
-    float floatValue(SVGAndroidRenderer renderer) {
+    public float floatValue(SVGAndroidRenderer renderer) {
         if (unit == Unit.percent) {
             Box viewPortUser = renderer.getCurrentViewPortInUserUnits();
             if (viewPortUser == null)
@@ -77,7 +77,7 @@ public class Length implements Cloneable {
 
     // Convert length to user units for a context that is not orientation specific.
     // For percentage values, use the given 'max' parameter to represent the 100% value.
-    float floatValue(SVGAndroidRenderer renderer, float max) {
+    public float floatValue(SVGAndroidRenderer renderer, float max) {
         if (unit == Unit.percent) {
             return value * max / 100f;
         }
@@ -86,7 +86,7 @@ public class Length implements Cloneable {
 
     // For situations (like calculating the initial viewport) when we can only rely on
     // physical real world units.
-    float floatValue(float dpi) {
+    public float floatValue(float dpi) {
         switch (unit) {
             case px:
                 return value;
@@ -108,11 +108,11 @@ public class Length implements Cloneable {
         }
     }
 
-    boolean isZero() {
+    public boolean isZero() {
         return value == 0f;
     }
 
-    boolean isNegative() {
+    public boolean isNegative() {
         return value < 0f;
     }
 
