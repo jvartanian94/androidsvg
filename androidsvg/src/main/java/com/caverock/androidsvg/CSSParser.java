@@ -24,9 +24,6 @@ import org.xml.sax.SAXException;
 
 import android.util.Log;
 
-import com.caverock.androidsvg.SVG.SvgContainer;
-import com.caverock.androidsvg.SVG.SvgElementBase;
-import com.caverock.androidsvg.SVG.SvgObject;
 import com.caverock.androidsvg.SVGParser.TextScanner;
 
 /**
@@ -203,9 +200,9 @@ class CSSParser
    static class  Rule
    {
       Selector   selector = null;
-      SVG.Style  style = null;
+      Style style = null;
       
-      Rule(Selector selector, SVG.Style style)
+      Rule(Selector selector, Style style)
       {
          this.selector = selector;
          this.style = style;
@@ -662,7 +659,7 @@ class CSSParser
          if (!scan.consume('{'))
             throw new SAXException("Malformed rule block in <style> element: missing '{'");
          scan.skipWhitespace();
-         SVG.Style  ruleStyle = parseDeclarations(scan);
+         Style ruleStyle = parseDeclarations(scan);
          scan.skipWhitespace();
          for (Selector selector: selectors) {
             ruleset.add( new Rule(selector, ruleStyle) );
@@ -707,9 +704,9 @@ class CSSParser
 
 
    // Parse a list of
-   private SVG.Style  parseDeclarations(CSSTextScanner scan) throws SAXException
+   private Style parseDeclarations(CSSTextScanner scan) throws SAXException
    {
-      SVG.Style  ruleStyle = new SVG.Style();
+      Style ruleStyle = new Style();
       while (true)
       {
          String  propertyName = scan.nextIdentifier();
@@ -884,7 +881,7 @@ class CSSParser
          // The Group object does not match its tag ("<g>"), so we have to handle it as a special case.
          if (sel.tag.equalsIgnoreCase("G"))
          {
-            if (!(obj instanceof SVG.Group))
+            if (!(obj instanceof Group))
                return false;
          }
          // all other element classes should match their tag names
