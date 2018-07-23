@@ -1,10 +1,10 @@
 package com.caverock.androidsvg;
 
 public class PathDefinition implements PathInterface {
-    private byte[] commands = null;
-    private int commandsLength = 0;
-    private float[] coords = null;
-    private int coordsLength = 0;
+    public byte[] commands = null;
+    public int commandsLength = 0;
+    public float[] coords = null;
+    public int coordsLength = 0;
 
     private static final byte MOVETO = 0;
     private static final byte LINETO = 1;
