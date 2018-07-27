@@ -6,6 +6,14 @@ public class StatefulAndroidPath extends Path {
 
     public String pathString = "";
 
+    public StatefulAndroidPath() {
+    }
+
+    public StatefulAndroidPath(StatefulAndroidPath src) {
+        super(src);
+        pathString = src.pathString;
+    }
+
     @Override
     public void moveTo(float x, float y) {
         pathString += "M " + x + " " + y + " ";
