@@ -391,6 +391,7 @@ public class SVGAndroidRenderer {
         }
 
         // Otherwise do a normal fill
+        Log.d(TAG, "SVG " + obj.toString() + " FILL COLOR: " + state.fillPaint.getColor());
         canvas.drawPath(path, state.fillPaint);
     }
 
@@ -430,6 +431,7 @@ public class SVGAndroidRenderer {
             if (shader != null)
                 shader.setLocalMatrix(currentShaderMatrix);
         } else {
+            Log.d(TAG, "SVG STROKE COLOR: " + state.strokePaint.getColor());
             canvas.drawPath(path, state.strokePaint);
         }
     }
