@@ -37,4 +37,10 @@ public class StatefulAndroidPath extends Path {
         pathString = "";
         super.reset();
     }
+
+    @Override
+    public void close() {
+        pathString += "z ";
+        super.close();
+    }
 }
